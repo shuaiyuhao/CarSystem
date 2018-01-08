@@ -32,7 +32,7 @@
         <input type="text" placeholder="用户名" name="userName" >
         <input type="text" placeholder="密码" name="passWord" id="passWord">
         <input type="text" placeholder="确认密码" name="repassword" id="repassWord">
-        <button type="submit" class="but" >提交</button><button class="but" type="button" onclick="window.open('/login')">返回登录页</button>
+        <button type="submit" class="but" >提交</button><button class="but" type="button" onclick="location.href='/login'">返回登录页</button>
 
     </form>
 </div>

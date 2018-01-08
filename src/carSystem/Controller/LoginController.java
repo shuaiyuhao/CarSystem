@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Created by shuaiyuhao on 2017/12/20.
  */
@@ -20,13 +22,16 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
-    public String userLogin(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord) {
+    public String userLogin(HttpServletRequest request,@RequestParam("userName") String userName, @RequestParam("passWord") String passWord) {
         User user = new User();
         userInfo userinfo = user.login(userName, passWord);
         //判断user_Info是否为空
         if (userinfo != null) {
+            request.getSession().setAttribute("userInfo",userinfo);
             return "index";
+
         }else {
+            request.setAttribute("info","用户吗或密码错误");
             return "wrong";
         }
     }
@@ -36,7 +41,7 @@ public class LoginController {
     public String Register(){return "Register";}
 
     @RequestMapping(value = "/userRegister")
-    public String userRegister(@RequestParam("userName") String userName,@RequestParam("passWord") String passWord,Model model){
+    public String userRegister(HttpServletRequest request,@RequestParam("userName") String userName, @RequestParam("passWord") String passWord, Model model){
         User user = new User();
         if(userName != null && !userName.isEmpty()){
             if(user.userIsExist(userName)){
@@ -44,11 +49,11 @@ public class LoginController {
                 userinfo.setuserName(userName);
                 userinfo.setpassWord(passWord);
                 user.saveUser(userinfo);
-                //request.setAttribute("info","注册成功");
+                request.setAttribute("info","注册成功");
                 return "Login";
             }
             else {
-                //request.setAttribute("info","该用户名已存在");
+                request.setAttribute("info","该用户名已存在");
             }
         }
         return "wrong";

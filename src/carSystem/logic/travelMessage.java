@@ -3,9 +3,8 @@ package carSystem.logic;
 import carSystem.DB_Connect.DB_Connect;
 import carSystem.Info.travelInfo;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Created by shuaiyuhao on 2017/12/21.
@@ -51,5 +50,51 @@ public class travelMessage {
             DB_Connect.closeConnection(conn);
         }
     }
+
+//    ArrayList<PassengerFormEntity> PasForm = new ArrayList<>();
+//    ResultSet rs = null;
+//    Connection conn = DB_Connect.getConnection();
+//    String sql = "select * from passengerForm"
+
+    public ArrayList<travelInfo> getPassengerForm() throws SQLException{
+        ArrayList<travelInfo> travelInfos = new ArrayList<travelInfo>();
+        ResultSet rs = null;
+        DB_Connect db = new DB_Connect();
+        String sql = "select * from passengerForm";
+        rs = db.querySql(sql);
+        while (rs.next()){
+            travelInfo t = new travelInfo();
+            t.setstartDate(rs.getString("startDate"));
+            t.setstartPlace(rs.getString("startPlace"));
+            t.setendPlace(rs.getString("endPlace"));
+            t.setmoney(rs.getString("money"));
+            t.setpeopleNum(rs.getString("peopleNum"));
+            travelInfos.add(t);
+        }
+        return travelInfos;
+
+
+    }
+
+    public ArrayList<travelInfo> getDriverForm() throws SQLException{
+        ArrayList<travelInfo> travelInfos = new ArrayList<travelInfo>();
+        ResultSet rs = null;
+        DB_Connect db = new DB_Connect();
+        String sql = "select * from DriverForm";
+        rs = db.querySql(sql);
+        while (rs.next()){
+            travelInfo t = new travelInfo();
+            t.setstartDate(rs.getString("startDate"));
+            t.setstartPlace(rs.getString("startPlace"));
+            t.setendPlace(rs.getString("endPlace"));
+            t.setpeopleNum(rs.getString("sitNum"));
+            travelInfos.add(t);
+        }
+        return travelInfos;
+
+
+    }
+
+
 
 }

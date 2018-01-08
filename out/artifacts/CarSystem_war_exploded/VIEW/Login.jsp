@@ -36,7 +36,7 @@
     <form  action="/userLogin" method="post" onsubmit="return Check(this)">
         <input type="text" placeholder="用户名" name="userName" id="username">
         <input type="text" placeholder="密码" name="passWord" id="password">
-        <button class="but" type="submit">登录</button><button class="but" type="button" onclick="window.open('/register')">注册</button>
+        <button class="but" type="submit">登录</button><button class="but" type="button" onclick="location.href='/register'">注册</button>
     </form>
 </div>
 </body>

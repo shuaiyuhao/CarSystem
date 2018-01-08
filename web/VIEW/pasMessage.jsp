@@ -31,10 +31,10 @@
     <header class="header" style="opacity: 0.7; filter:Alpha(Opacity=50, Style=0)">
         <div class="nav" style="opacity: 0.7; filter:Alpha(Opacity=50, Style=0)">
             <ul>
-                <li><a href="index.html" title="首页">首页</a></li>
+                <li><a href="/index" title="首页">首页</a></li>
                 <li><a href="" title="关于我们">关于我们</a></li>
                 <li><a href="" title="联系我们">联系我们</a></li>
-                <li><a href="Login.html" title="登录">登录</a></li>
+                <li><a href="/login" title="登录">登录</a></li>
 
             </ul>
         </div>

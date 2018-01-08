@@ -9,6 +9,7 @@
     <mvc:default-servlet-handler/>
     <!--配置要自动扫描的包-->
     <context:component-scan base-package="carSystem.Controller"/>
+    <context:component-scan base-package="carSystem.service"/>
 
     <mvc:resources mapping="/css/**" location="/css/"/>
     <mvc:resources mapping="/*.html" location="/HTML"/>
