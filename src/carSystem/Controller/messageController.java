@@ -58,6 +58,32 @@ public class messageController {
         }
     }
 
+    @RequestMapping(value = "/SearchDriver")
+    public String searchDriver(@RequestParam("keyword") String keyword,Model model){
+        travelMessage a = new travelMessage();
+        ArrayList<travelInfo> travelInfos =null;
+        try{
+            travelInfos = a.searchDriver(keyword);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        model.addAttribute("travelInfos",travelInfos);
+        return "searchDriver";
+    }
+
+    @RequestMapping(value = "/SearchPassenger")
+    public String searchPassenger(@RequestParam("keyword") String keyword,Model model){
+        travelMessage a = new travelMessage();
+        ArrayList<travelInfo> travelInfos =null;
+        try{
+            travelInfos = a.searchPassenger(keyword);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        model.addAttribute("travelInfos",travelInfos);
+        return "searchPassenger";
+    }
+
     @RequestMapping(value = "/showForm")
     public String showPassengerForm(HttpServletRequest request, Model model) {
         travelMessage a = new travelMessage();

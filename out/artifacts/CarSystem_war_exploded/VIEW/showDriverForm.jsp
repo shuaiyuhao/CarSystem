@@ -46,9 +46,16 @@
     </header>
 
     <div class="gallery" style="opacity: 0.9; filter:Alpha(Opacity=50, Style=0)">
-        <div class="button1" style="opacity: 0.6; filter:Alpha(Opacity=50, Style=0)" onclick="location.href='/showForm'">查看乘客表单</div>
-        <div class="button1" style="opacity: 0.6; filter:Alpha(Opacity=50, Style=0)" onclick="location.href='/showDriverForm'">查看司机表单</div>
+        <div class="btn" style="opacity: 0.6; filter:Alpha(Opacity=50, Style=0)" onclick="location.href='/showForm'">查看乘客表单</div>
+        <div class="btn" style="opacity: 0.6; filter:Alpha(Opacity=50, Style=0)" onclick="location.href='/showDriverForm'">查看司机表单</div>
+        <form action="/SearchPassenger" method="post">
+        <input type="text" class="text-center" name="keyword"><input type="submit" class="btn">
+        </form>
         <table data-toggle="table" data-url="data.json">
+            <tr>
+                <td colspan="4" align="center">司机表单</td>
+
+            </tr>
             <tr>
                 <td>出发时间</td>
                 <td>出发地点</td>

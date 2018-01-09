@@ -48,19 +48,19 @@
     <div class="gallery" style="opacity: 0.9; filter:Alpha(Opacity=50, Style=0)">
         <div class="btn" style="opacity: 0.6; filter:Alpha(Opacity=50, Style=0)" onclick="location.href='/showForm'">查看乘客表单</div>
         <div class="btn" style="opacity: 0.6; filter:Alpha(Opacity=50, Style=0)" onclick="location.href='/showDriverForm'">查看司机表单</div>
-        <form action="/SearchDriver" method="post">
+        <form action="/SearchPassenger" method="post">
             <input type="text" class="text-center" name="keyword"><input type="submit" class="btn">
         </form>
         <table data-toggle="table" data-url="data.json">
             <tr>
-                <td colspan="4" align="center">乘客表单</td>
+                <td colspan="4" align="center">司机表单</td>
 
             </tr>
             <tr>
                 <td>出发时间</td>
                 <td>出发地点</td>
                 <td>目的地</td>
-                <td>乘车人数</td>
+                <td>座位数</td>
             </tr>
 
             <c:forEach items="${travelInfos}" var="travelInfos">
@@ -68,7 +68,7 @@
                     <td>${travelInfos.startDate}</td>
                     <td>${travelInfos.startPlace}</td>
                     <td>${travelInfos.endPlace}</td>
-                    <td>${travelInfos.peopleNum}</td>
+                    <td>${travelInfos.sitNum}</td>
                 </tr>
             </c:forEach>
         </table>

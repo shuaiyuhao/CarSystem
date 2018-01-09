@@ -51,11 +51,7 @@ public class travelMessage {
         }
     }
 
-//    ArrayList<PassengerFormEntity> PasForm = new ArrayList<>();
-//    ResultSet rs = null;
-//    Connection conn = DB_Connect.getConnection();
-//    String sql = "select * from passengerForm"
-
+    //乘客表单展示
     public ArrayList<travelInfo> getPassengerForm() throws SQLException{
         ArrayList<travelInfo> travelInfos = new ArrayList<travelInfo>();
         ResultSet rs = null;
@@ -75,7 +71,7 @@ public class travelMessage {
 
 
     }
-
+    //司机表单展示
     public ArrayList<travelInfo> getDriverForm() throws SQLException{
         ArrayList<travelInfo> travelInfos = new ArrayList<travelInfo>();
         ResultSet rs = null;
@@ -87,7 +83,7 @@ public class travelMessage {
             t.setstartDate(rs.getString("startDate"));
             t.setstartPlace(rs.getString("startPlace"));
             t.setendPlace(rs.getString("endPlace"));
-            t.setpeopleNum(rs.getString("sitNum"));
+            t.setsitNum(rs.getString("sitNum"));
             travelInfos.add(t);
         }
         return travelInfos;
@@ -95,6 +91,42 @@ public class travelMessage {
 
     }
 
+    //搜索司机表单
+    public ArrayList<travelInfo> searchDriver(String keyword) throws SQLException{
+        ArrayList<travelInfo> travelInfos = new ArrayList<travelInfo>();
+        ResultSet rs = null;
+        DB_Connect db = new DB_Connect();
+        String sql = "select * from driverForm where endPlace like '%" + keyword +"%'";
+        rs = db.querySql(sql);
+        while (rs.next()){
+            travelInfo t = new travelInfo();
+            t.setstartDate(rs.getString("startDate"));
+            t.setstartPlace(rs.getString("startPlace"));
+            t.setendPlace(rs.getString("endPlace"));
+            t.setsitNum(rs.getString("sitNum"));
+            travelInfos.add(t);
+        }
+        return travelInfos;
+
+    }
+    //搜索司机表单
+    public ArrayList<travelInfo> searchPassenger(String keyword) throws SQLException{
+        ArrayList<travelInfo> travelInfos = new ArrayList<travelInfo>();
+        ResultSet rs = null;
+        DB_Connect db = new DB_Connect();
+        String sql = "select * from passengerForm where endPlace like '%" + keyword +"%'";
+        rs = db.querySql(sql);
+        while (rs.next()){
+            travelInfo t = new travelInfo();
+            t.setstartDate(rs.getString("startDate"));
+            t.setstartPlace(rs.getString("startPlace"));
+            t.setendPlace(rs.getString("endPlace"));
+            t.setpeopleNum(rs.getString("peopleNum"));
+            travelInfos.add(t);
+        }
+        return travelInfos;
+
+    }
 
 
 }
