@@ -7,7 +7,6 @@
   Time: 下午7:52
   To change this template use File | Settings | File Templates.
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
@@ -15,17 +14,10 @@
     <title>Title</title>
     <style type="text/css">@import url(../css/simpleGridTemplate.css);</style>
     <style type="text/css">@import url(../css/Style.css);</style>
-    <style type="text/css">@import url(../css/bootstrap-table.min.css);</style>
-    <style type="text/css">@import url(../css/bootstrap.min.css);</style>
     <%--<link href="../css/simpleGridTemplate.css" rel="stylesheet" type="text/css">--%>
     <%--<link href="../css/Style.css" rel="stylesheet" type="text/css">--%>
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/bootstrap-table.js"></script>
     <script type="text/javascript">
-        $('#table').bootstrapTable({
-            url: 'data.json'
-        });
+
     </script>
 </head>
 <body>
@@ -46,32 +38,10 @@
     </header>
 
     <div class="gallery" style="opacity: 0.9; filter:Alpha(Opacity=50, Style=0)">
-        <div class="btn" style="opacity: 0.6; filter:Alpha(Opacity=50, Style=0)" onclick="location.href='/showForm'">查看乘客表单</div>
-        <div class="btn" style="opacity: 0.6; filter:Alpha(Opacity=50, Style=0)" onclick="location.href='/showDriverForm'">查看司机表单</div>
-        <form action="/SearchDriver" method="post">
-            <input type="text" placeholder="搜索司机" class="text-center" name="keyword"><input type="submit" class="btn">
-        </form>
-        <table data-toggle="table" data-url="data.json">
-            <tr>
-                <td colspan="4" align="center">乘客表单</td>
+        <div class=" thumbnail">
+            <P>正在等待司机到达出发地</P>
 
-            </tr>
-            <tr>
-                <td>出发时间</td>
-                <td>出发地点</td>
-                <td>目的地</td>
-                <td>乘车人数</td>
-            </tr>
-
-            <c:forEach items="${travelInfos}" var="travelInfos">
-                <tr>
-                    <td>${travelInfos.startDate}</td>
-                    <td>${travelInfos.startPlace}</td>
-                    <td>${travelInfos.endPlace}</td>
-                    <td>${travelInfos.peopleNum}</td>
-                </tr>
-            </c:forEach>
-        </table>
+        </div>
     </div>
 
     <footer id="contact" style="opacity: 0.6; filter:Alpha(Opacity=50, Style=0)">

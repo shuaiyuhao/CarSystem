@@ -49,7 +49,7 @@
         <div class="btn" style="opacity: 0.6; filter:Alpha(Opacity=50, Style=0)" onclick="location.href='/showForm'">查看乘客表单</div>
         <div class="btn" style="opacity: 0.6; filter:Alpha(Opacity=50, Style=0)" onclick="location.href='/showDriverForm'">查看司机表单</div>
         <form action="/SearchPassenger" method="post">
-        <input type="text" class="text-center" name="keyword"><input type="submit" class="btn">
+        <input type="text" placeholder="搜索乘客" class="text-center" name="keyword"><input type="submit" class="btn">
         </form>
         <table data-toggle="table" data-url="data.json">
             <tr>

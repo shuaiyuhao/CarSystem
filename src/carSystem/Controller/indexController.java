@@ -2,6 +2,7 @@ package carSystem.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created by shuaiyuhao on 2017/12/21.
@@ -20,6 +21,14 @@ public class indexController {
     @RequestMapping(value = "/userInfo")
     public String userInfo(){
         return "userInfo";
+    }
+
+    @RequestMapping(value = "/waitPassenger")
+    public String waitPassenger(){return "waitPassenger";}
+
+    @RequestMapping(value = "/waitDriver")
+    public String waitDriver(){
+        return "waitDriver";
     }
 
 

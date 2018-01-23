@@ -34,7 +34,6 @@ public class messageController {
         travelinfo.setendPlace(endPlace);
         travelinfo.setpeopleNum(peopleNum);
         tm.savePasTravel(travelinfo);
-        tm.saveDriTravel(travelinfo);
         if (travelinfo != null) {
             return "sendSuccessful";
         } else {

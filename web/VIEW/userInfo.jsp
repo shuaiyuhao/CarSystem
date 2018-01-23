@@ -40,7 +40,7 @@
     <div class="gallery" style="opacity: 0.9; filter:Alpha(Opacity=50, Style=0)">
         <div class=" thumbnail">
             <P>姓名： TTT</P>
-            <p>年龄：</p>
+            <p>性别：male</p>
             <p>余额：</p>
             <p>手机号码：12345678</p>
 

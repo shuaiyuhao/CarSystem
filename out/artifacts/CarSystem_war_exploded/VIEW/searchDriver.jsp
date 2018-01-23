@@ -48,9 +48,7 @@
     <div class="gallery" style="opacity: 0.9; filter:Alpha(Opacity=50, Style=0)">
         <div class="btn" style="opacity: 0.6; filter:Alpha(Opacity=50, Style=0)" onclick="location.href='/showForm'">查看乘客表单</div>
         <div class="btn" style="opacity: 0.6; filter:Alpha(Opacity=50, Style=0)" onclick="location.href='/showDriverForm'">查看司机表单</div>
-        <form action="/SearchPassenger" method="post">
-            <input type="text" class="text-center" name="keyword"><input type="submit" class="btn">
-        </form>
+        <form action="/waitDriver" method="post">
         <table data-toggle="table" data-url="data.json">
             <tr>
                 <td colspan="4" align="center">司机表单</td>
@@ -69,9 +67,11 @@
                     <td>${travelInfos.startPlace}</td>
                     <td>${travelInfos.endPlace}</td>
                     <td>${travelInfos.sitNum}</td>
+                    <td><button type="submit">请他接我</button> </td>
                 </tr>
             </c:forEach>
         </table>
+        </form>
     </div>
 
     <footer id="contact" style="opacity: 0.6; filter:Alpha(Opacity=50, Style=0)">
