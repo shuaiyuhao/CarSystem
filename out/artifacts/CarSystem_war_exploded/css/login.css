@@ -10,7 +10,7 @@ body{
     height: 100%;
     font-family: 'Open Sans',sans-serif;
     margin: 0;
-    background-color: cyan;
+    background-color: #b5b5b5;
 }
 #login{
     position: absolute;
